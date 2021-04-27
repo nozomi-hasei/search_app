@@ -1,2 +1,20 @@
-<h1>Products#search</h1>
-<p>Find me in app/views/products/search.html.erb</p>
+<h1>
+  検索結果
+</h1>
+<% if @results.length !=0 %>
+  <% @results.each do |result| %>
+    <td>
+    <br>
+    <li>
+      <%= result.name %>
+      <%= result.size %>
+      <%= result.status %>
+      <%= result.price %>
+      <%= result.category.name %>
+    </li>
+  <% end %>
+<% else %>
+  該当する商品はありません
+<% end %>
+<br>
+<%= link_to 'トップページへ戻る', root_path %>
